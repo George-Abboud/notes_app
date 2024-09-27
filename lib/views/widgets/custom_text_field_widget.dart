@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/constants.dart';
 
 class CustomTextField extends StatelessWidget {
-  CustomTextField(
-      {required this.onChanged,
-      super.key,
+  const CustomTextField(
+      {super.key,
+      required this.onChanged,
       required this.hintText,
       this.obscure = false,
       this.inputType,
       this.maxLines = 1});
 
-  bool? obscure;
+  final bool obscure;
   final String hintText;
-  Function(String)? onChanged;
-  TextInputType? inputType;
+  final Function(String)? onChanged;
+  final TextInputType? inputType;
   final int maxLines;
 
   @override
@@ -24,7 +24,7 @@ class CustomTextField extends StatelessWidget {
         maxLines: maxLines,
         cursorColor: kPrimaryColor,
         keyboardType: inputType,
-        obscureText: obscure!,
+        obscureText: obscure,
         onChanged: onChanged,
         style: const TextStyle(color: kPrimaryColor),
         decoration: InputDecoration(
@@ -41,7 +41,6 @@ class CustomTextField extends StatelessWidget {
   }
 
   OutlineInputBorder buildBorder({required Color color, double width = 1}) {
-    ;
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(12),
       borderSide: BorderSide(color: color, width: width),

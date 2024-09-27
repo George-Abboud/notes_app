@@ -18,10 +18,10 @@ class NotesView extends StatelessWidget {
             },
           );
         },
-        child: const Icon(Icons.add),
         backgroundColor: Colors.black,
         foregroundColor: kPrimaryColor,
-        shape: CircleBorder(),
+        shape: const CircleBorder(),
+        child: const Icon(Icons.add),
       ),
       body: const NotesViewBody(),
     );
