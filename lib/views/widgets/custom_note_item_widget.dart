@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/constants.dart';
 
 class CustomNoteItem extends StatelessWidget {
   const CustomNoteItem({super.key});
@@ -6,11 +7,10 @@ class CustomNoteItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 16),
+      padding: const EdgeInsets.only(top: 8),
       child: Container(
         decoration: BoxDecoration(
-            color: const Color(0xFFFDB851),
-            borderRadius: BorderRadius.circular(12)),
+            color: kPrimaryColor, borderRadius: BorderRadius.circular(12)),
         child: const Padding(
           padding: EdgeInsets.all(16),
           child: Column(
