@@ -7,18 +7,21 @@ class CustomTextField extends StatelessWidget {
       super.key,
       required this.hintText,
       this.obscure = false,
-      this.inputType});
+      this.inputType,
+      this.maxLines = 1});
 
   bool? obscure;
   final String hintText;
   Function(String)? onChanged;
   TextInputType? inputType;
+  final int maxLines;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: TextField(
+        maxLines: maxLines,
         cursorColor: kPrimaryColor,
         keyboardType: inputType,
         obscureText: obscure!,
@@ -30,15 +33,14 @@ class CustomTextField extends StatelessWidget {
           hintStyle: const TextStyle(
             color: Color(0xBAFDCA7E),
           ),
-          enabledBorder: buildBorder(color: const Color(0xBAFDCA7E), width: 1),
+          enabledBorder: buildBorder(color: const Color(0xBAFDCA7E)),
           focusedBorder: buildBorder(color: kPrimaryColor, width: 2),
         ),
       ),
     );
   }
 
-  OutlineInputBorder buildBorder(
-      {required Color color, required double width}) {
+  OutlineInputBorder buildBorder({required Color color, double width = 1}) {
     ;
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(12),

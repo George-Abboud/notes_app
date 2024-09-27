@@ -7,7 +7,18 @@ class NoteModalBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [CustomTextField(onChanged: (data) {}, hintText: 'Title')],
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        CustomTextField(onChanged: (data) {}, hintText: 'Title'),
+        const SizedBox(
+          height: 16,
+        ),
+        CustomTextField(
+          onChanged: (data) {},
+          hintText: 'Content',
+          maxLines: 5,
+        ),
+      ],
     );
   }
 }
