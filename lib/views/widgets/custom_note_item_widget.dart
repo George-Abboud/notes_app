@@ -26,7 +26,7 @@ class CustomNoteItem extends StatelessWidget {
                       fontWeight: FontWeight.w700),
                 ),
                 subtitle: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  padding: EdgeInsets.symmetric(vertical: 16),
                   child: Text(
                     'Build your flutter project with George Abboud',
                     style: TextStyle(color: Colors.black38, fontSize: 14),
