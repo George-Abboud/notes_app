@@ -7,40 +7,75 @@ class NoteModalBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return const SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(
-              height: 16,
-            ),
-            CustomTextField(
-              onChanged: (data) {},
-              hintText: 'Title',
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            CustomTextField(
-              onChanged: (data) {},
-              hintText: 'Content',
-              maxLines: 5,
-            ),
-            const SizedBox(
-              height: 48,
-            ),
-            CustomButtonWidget(
-              onTap: () {},
-              title: 'Add',
-              icon: Icons.add,
-            ),
-            const SizedBox(
-              height: 24,
-            ),
-          ],
-        ),
+        padding: EdgeInsets.symmetric(horizontal: 16),
+        child: AddNoteForm(),
+      ),
+    );
+  }
+}
+
+class AddNoteForm extends StatefulWidget {
+  const AddNoteForm({
+    super.key,
+  });
+
+  @override
+  State<AddNoteForm> createState() => _AddNoteFormState();
+}
+
+class _AddNoteFormState extends State<AddNoteForm> {
+  String? title, content;
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  final GlobalKey<FormState> formKey = GlobalKey();
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: formKey,
+      autovalidateMode: autovalidateMode,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const SizedBox(
+            height: 16,
+          ),
+          CustomTextField(
+            onSaved: (data) {
+              title = data;
+            },
+            hintText: 'Title',
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          CustomTextField(
+            onSaved: (data) {
+              content = data;
+            },
+            hintText: 'Content',
+            maxLines: 5,
+          ),
+          const SizedBox(
+            height: 48,
+          ),
+          CustomButtonWidget(
+            onTap: () {
+              if (formKey.currentState!.validate()) {
+                formKey.currentState!.save();
+              } else {
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {});
+              }
+            },
+            title: 'Add',
+            icon: Icons.add,
+          ),
+          const SizedBox(
+            height: 24,
+          ),
+        ],
       ),
     );
   }
