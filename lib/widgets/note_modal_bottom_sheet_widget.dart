@@ -31,7 +31,11 @@ class NoteModalBottomSheet extends StatelessWidget {
             const SizedBox(
               height: 48,
             ),
-            CustomButtonWidget(onTap: () {}, title: 'Add'),
+            CustomButtonWidget(
+              onTap: () {},
+              title: 'Add',
+              icon: Icons.add,
+            ),
             const SizedBox(
               height: 24,
             ),

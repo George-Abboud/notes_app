@@ -6,8 +6,10 @@ class CustomButtonWidget extends StatelessWidget {
     super.key,
     required this.onTap,
     required this.title,
+    required this.icon,
   });
   final String title;
+  final IconData icon;
   final VoidCallback? onTap;
 
   @override
@@ -23,13 +25,25 @@ class CustomButtonWidget extends StatelessWidget {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 16),
-            child: Text(
-              title,
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(
+                  width: 4,
+                ),
+                Icon(
+                  icon,
+                  color: Colors.black,
+                )
+              ],
             ),
           ),
         ),
