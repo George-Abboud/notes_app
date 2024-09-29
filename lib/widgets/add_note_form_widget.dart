@@ -54,23 +54,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             builder: (context, state) {
               return CustomButtonWidget(
                 isLoading: state is AddNoteCubitLoading ? true : false,
-                onTap: () {
-                  if (formKey.currentState!.validate()) {
-                    DateTime currentdate = DateTime.now();
-                    String formattedCurrentDate =
-                        DateFormat.yMd().format(currentdate);
-                    formKey.currentState!.save();
-                    NoteModel note = NoteModel(
-                        title: title!,
-                        content: content!,
-                        date: formattedCurrentDate,
-                        color: Colors.blueAccent.value);
-                    BlocProvider.of<AddNoteCubit>(context).addNote(note);
-                  } else {
-                    autovalidateMode = AutovalidateMode.always;
-                    setState(() {});
-                  }
-                },
+                onTap: onTap,
                 title: 'Add',
                 icon: Icons.add,
               );
@@ -82,5 +66,22 @@ class _AddNoteFormState extends State<AddNoteForm> {
         ],
       ),
     );
+  }
+
+  void onTap() {
+    if (formKey.currentState!.validate()) {
+      DateTime currentdate = DateTime.now();
+      String formattedCurrentDate = DateFormat.yMd().format(currentdate);
+      formKey.currentState!.save();
+      NoteModel note = NoteModel(
+          title: title!,
+          content: content!,
+          date: formattedCurrentDate,
+          color: Colors.blueAccent.value);
+      BlocProvider.of<AddNoteCubit>(context).addNote(note);
+    } else {
+      autovalidateMode = AutovalidateMode.always;
+      setState(() {});
+    }
   }
 }

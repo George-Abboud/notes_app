@@ -19,6 +19,7 @@ class CustomTextField extends StatelessWidget {
   final int maxLines;
   final String? initialValue;
   final void Function(String)? onChanged;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -44,7 +45,7 @@ class CustomTextField extends StatelessWidget {
         hintText: hintText,
         filled: false,
         hintStyle: const TextStyle(
-          color: Color(0xBAFDCA7E),
+          color: kinitColor,
         ),
         border: buildBorder(color: kinitColor),
         enabledBorder: buildBorder(color: kinitColor),
