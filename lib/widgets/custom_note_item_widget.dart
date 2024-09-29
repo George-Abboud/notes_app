@@ -48,10 +48,15 @@ class CustomNoteItem extends StatelessWidget {
                           const TextStyle(color: Colors.black38, fontSize: 14),
                     ),
                   ),
-                  trailing: const Icon(
-                    Icons.delete,
-                    size: 28,
-                    color: Colors.black,
+                  trailing: GestureDetector(
+                    onTap: () {
+                      note.delete();
+                    },
+                    child: const Icon(
+                      Icons.delete,
+                      size: 28,
+                      color: Colors.black,
+                    ),
                   ),
                 ),
                 Text(
