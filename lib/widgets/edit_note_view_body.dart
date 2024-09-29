@@ -17,14 +17,14 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
   String? title, content;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: Column(
-        children: [
-          const SizedBox(
-            height: 48,
-          ),
-          CustomAppBar(
+    return Column(
+      children: [
+        const SizedBox(
+          height: 48,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: CustomAppBar(
             onTap: () {
               widget.note.title = title ?? widget.note.title;
               widget.note.content = content ?? widget.note.content;
@@ -35,29 +35,29 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             title: 'Edit Note',
             icon: Icons.check,
           ),
-          const SizedBox(
-            height: 48,
-          ),
-          CustomTextField(
-            initialValue: widget.note.title,
-            onChanged: (value) {
-              title = value;
-            },
-            hintText: 'Title',
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          CustomTextField(
-            initialValue: widget.note.content,
-            onChanged: (value) {
-              content = value;
-            },
-            hintText: 'Content',
-            maxLines: 5,
-          ),
-        ],
-      ),
+        ),
+        const SizedBox(
+          height: 48,
+        ),
+        CustomTextField(
+          initialValue: widget.note.title,
+          onChanged: (value) {
+            title = value;
+          },
+          hintText: 'Title',
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        CustomTextField(
+          initialValue: widget.note.content,
+          onChanged: (value) {
+            content = value;
+          },
+          hintText: 'Content',
+          maxLines: 5,
+        ),
+      ],
     );
   }
 }

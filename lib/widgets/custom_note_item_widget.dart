@@ -5,10 +5,10 @@ import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
 class CustomNoteItem extends StatelessWidget {
-  const CustomNoteItem({super.key, required this.note});
+  const CustomNoteItem({super.key, required this.note, required this.padding});
 
   final NoteModel note;
-
+  final EdgeInsetsGeometry padding;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -24,7 +24,7 @@ class CustomNoteItem extends StatelessWidget {
         );
       },
       child: Padding(
-        padding: const EdgeInsets.only(top: 8),
+        padding: padding,
         child: Container(
           decoration: BoxDecoration(
             color: Color(note.color),
@@ -39,6 +39,7 @@ class CustomNoteItem extends StatelessWidget {
                   contentPadding: const EdgeInsets.all(0),
                   title: Text(
                     note.title,
+                    maxLines: 1,
                     style: const TextStyle(
                         color: Colors.black,
                         fontSize: 24,
