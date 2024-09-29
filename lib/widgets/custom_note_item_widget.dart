@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/fetch%20notes/fetch_notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
@@ -51,6 +53,7 @@ class CustomNoteItem extends StatelessWidget {
                   trailing: GestureDetector(
                     onTap: () {
                       note.delete();
+                      BlocProvider.of<FetchNotesCubit>(context).fetchNotes();
                     },
                     child: const Icon(
                       Icons.delete,
