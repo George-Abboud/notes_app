@@ -28,8 +28,6 @@ class NoteModalBottomSheet extends StatelessWidget {
             absorbing: state is AddNoteCubitLoading ? true : false,
             child: Padding(
               padding: EdgeInsets.only(
-                  right: 16,
-                  left: 16,
                   bottom: MediaQuery.of(context).viewInsets.bottom),
               child: const SingleChildScrollView(
                 child: AddNoteForm(),

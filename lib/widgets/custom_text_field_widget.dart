@@ -22,34 +22,37 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      onChanged: onChanged,
-      initialValue: initialValue,
-      validator: (data) {
-        if (data?.isEmpty ?? true) {
-          return 'Field is required';
-        } else {
-          return null;
-        }
-      },
-      maxLines: maxLines,
-      cursorColor: kPrimaryColor,
-      keyboardType: inputType,
-      obscureText: obscure,
-      onSaved: onSaved,
-      style: const TextStyle(color: kPrimaryColor),
-      decoration: InputDecoration(
-        focusedErrorBorder: buildBorder(color: Colors.red),
-        errorBorder: buildBorder(color: Colors.red),
-        errorStyle: const TextStyle(color: Colors.red),
-        hintText: hintText,
-        filled: false,
-        hintStyle: const TextStyle(
-          color: kinitColor,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: TextFormField(
+        onChanged: onChanged,
+        initialValue: initialValue,
+        validator: (data) {
+          if (data?.isEmpty ?? true) {
+            return 'Field is required';
+          } else {
+            return null;
+          }
+        },
+        maxLines: maxLines,
+        cursorColor: kPrimaryColor,
+        keyboardType: inputType,
+        obscureText: obscure,
+        onSaved: onSaved,
+        style: const TextStyle(color: kPrimaryColor),
+        decoration: InputDecoration(
+          focusedErrorBorder: buildBorder(color: Colors.red),
+          errorBorder: buildBorder(color: Colors.red),
+          errorStyle: const TextStyle(color: Colors.red),
+          hintText: hintText,
+          filled: false,
+          hintStyle: const TextStyle(
+            color: kinitColor,
+          ),
+          border: buildBorder(color: kinitColor),
+          enabledBorder: buildBorder(color: kinitColor),
+          focusedBorder: buildBorder(color: kPrimaryColor, width: 2),
         ),
-        border: buildBorder(color: kinitColor),
-        enabledBorder: buildBorder(color: kinitColor),
-        focusedBorder: buildBorder(color: kPrimaryColor, width: 2),
       ),
     );
   }
